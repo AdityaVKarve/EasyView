@@ -8,6 +8,14 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+<<<<<<< HEAD
+=======
+.env
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e68a21 (Sweeping changes)
+>>>>>>> 687fec9 (Sweeping changes)
 # Icon must end with two \r
 Icon
 
