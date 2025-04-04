@@ -1,7 +1,19 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+<<<<<<< HEAD
 import { Strategy as MicrosoftStrategy } from 'passport-microsoft';
 import dotenv from 'dotenv';
+=======
+import dotenv from 'dotenv';
+
+//load the environment variables
+dotenv.config();
+
+const google_client_id = process.env.GOOGLE_CLIENT_ID || ''; // type is: string | undefined
+const google_client_secret = process.env.GOOGLE_CLIENT_SECRET || '';
+
+console.log("Secret : "+google_client_id)
+>>>>>>> d2aeb8a (Added templating and OAuth and basic UI)
 
 dotenv.config();
 
