@@ -1,0 +1,37 @@
+<div class="bg-white p-4 rounded-xl shadow">
+  <h2 class="text-lg font-semibold mb-2 p-4">{{title}}</h2>
+  <canvas id="{{chartId}}" height="200"></canvas>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ctx = document.getElementById("{{chartId}}");
+      if (ctx) {
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: {{{JSONstringify chartData.labels}}},
+            datasets: [{
+              data: {{{JSONstringify chartData.values}}},
+              backgroundColor: [
+                '#34d399', // green
+                '#3b82f6', // blue
+                '#f87171', // red
+                '#fbbf24', // yellow
+                '#a78bfa', // purple
+                '#60a5fa'  // light blue
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      }
+    });
+  </script>
+</div>
