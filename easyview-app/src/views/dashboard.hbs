@@ -1,6 +1,43 @@
 {{#extend "content"}}
-  <div class="text-center">
-    <h1 class="text-2xl font-bold">{{message}}</h1>
-    <p class="mt-2">You are viewing: {{currentRoute}}</p>
+<div class="bg-white p-4 rounded-xl shadow p-8">
+ 
+  <div class="p-8 grid grid-cols-1 xl:grid-cols-3 gap-6">
+    <div class="xl:col-span-2">
+    <h2 class="text-lg font-semibold mb-4">Waste metrics for the residual waste fraction</h2>
+    </div>
+    <div class="xl:col-span-1 justify-content: flex-end;">
+      <div class="xl:col-span-1 flex justify-end items-start">
+        <button class="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
+          Sign out
+        </button>
+      </div>
+    </div>
+    <!-- Bar Chart - spans 2 columns -->
+    <div class="xl:col-span-2">
+      {{> barchart chartId="weeklyChart" weeklyData=weeklyData }}
+    </div>
+
+    <!-- Total Impact Card - metrics[0] and metrics[1] -->
+    <div class="bg-white p-4 rounded-xl shadow flex flex-col justify-between">
+      <h2 class="text-lg font-semibold mb-4">Total Impact</h2>
+      {{> card metrics.[0] }}
+      {{> card metrics.[1] }}
+    </div>
+
+    <!-- Donut Chart 1 -->
+    {{> donutchart title="Waste Composition of Sorted Waste" chartId="wasteComp" chartData=donutData }}
+
+    <!-- Donut Chart 2 -->
+    {{> donutchart title="Waste Sources" chartId="wasteSources" chartData=sourcesData }}
+
+    <!-- Sorting Efficiency Card -->
+    <div class="bg-white p-4 rounded-xl shadow flex flex-col justify-between">
+      <h2 class="text-lg font-semibold mb-4">Sorting Efficiency</h2>
+      {{> card metrics.[2] }}
+      {{> card metrics.[3] }}
+      {{> card metrics.[4] }}
+    </div>
+
   </div>
+</div>
 {{/extend}}

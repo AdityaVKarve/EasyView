@@ -1,5 +1,6 @@
 import express from "express";
 import passport from "passport";
+import supabase from "./supabase_config";
 import session from "express-session";
 import "./passport_config";
 import authRoutes from "./routes/auth";
@@ -11,7 +12,7 @@ import aboutRoutes from "./routes/about"
 import path from "path";
 import fs from "fs";
 import Handlebars from "handlebars";
-
+import hbs from "express-handlebars";
 
 const app = express();
 
@@ -22,6 +23,17 @@ app.use(express.static("public"));
 app.use(session({ secret: "your_secret_key", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Helper to make use of eq and JSON stringify
+Handlebars.registerHelper("eq", function(a: any, b: any) {
+  return a === b;
+});
+
+//Helper to stringify jsons
+Handlebars.registerHelper("JSONstringify", function(context: any) {
+  return JSON.stringify(context);
+});
+
 
 //Serve static files
 app.use(express.static(path.join(__dirname, "static")));
