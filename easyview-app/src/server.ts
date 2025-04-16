@@ -78,6 +78,10 @@ app.use("/", loginRoutes);
 app.use("/", dashboardRoutes);
 app.use("/", contactRoutes);
 app.use("/", aboutRoutes);
+app.use((err, req, res, next) => {
+  console.error('Auth Error:', err);
+  res.status(500).send("Authentication error");
+});
 
 app.listen(3000, () => {
   console.log("🚀 Server running at http://localhost:3000");
