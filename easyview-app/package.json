@@ -1,0 +1,28 @@
+{
+  "name": "easyview-app",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.17",
+    "@tailwindcss/vite": "^4.0.17",
+    "autoprefixer": "^10.4.21",
+    "express-session": "^1.18.1",
+    "handlebars": "^4.7.8",
+    "passport": "^0.7.0",
+    "passport-azure-ad": "^4.3.5",
+    "passport-google-oauth20": "^2.0.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.17",
+    
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./public/styles.css --watch"
+  }
+}
